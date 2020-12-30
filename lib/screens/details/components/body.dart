@@ -14,7 +14,7 @@ class DetailsBody extends StatelessWidget {
   const DetailsBody({Key key, this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var ccart = Provider.of<CartModel>(context, listen: false);
+    var ccart = Provider.of<CartModel>(context, listen: true);
     // it provide us total height and width
     Size size = MediaQuery.of(context).size;
     // it enable scrolling on small devices

@@ -12,22 +12,21 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     var ccart = Provider.of<CartModel>(context);
+    final productz = ccart.productItemList;
     return Scaffold(
         appBar: AppBar(
           title: Text('Cart'),
         ),
         backgroundColor: kPrimaryColor,
-        body:
-            // ccart.productItemList.length == 0
-            //     ? Text('no items in your cart')
-            //     :
-            ListView.builder(
+        body: ccart.productItemList.length == 0
+            ? Text('no items in your cart')
+            : ListView.builder(
                 shrinkWrap: true,
                 physics: BouncingScrollPhysics(),
-                itemCount: ccart.productItemList.length,
+                itemCount: productz.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                      title: Text(ccart.productItemList[index].title,
+                      title: Text(productz[index].title,
                           style: TextStyle(color: Colors.white)));
                 }));
   }

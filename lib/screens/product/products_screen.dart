@@ -12,7 +12,7 @@ import 'components/body.dart';
 class ProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var ccart = Provider.of<CartModel>(context);
+   // var ccart = Provider.of<CartModel>(context);
     return Scaffold(
         appBar: buildAppBar(context),
         backgroundColor: kPrimaryColor,

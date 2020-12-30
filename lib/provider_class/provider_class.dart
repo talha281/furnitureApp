@@ -2,16 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:furniture_app/models/product.dart';
 
 class CartModel extends ChangeNotifier {
-  List<Product> productItemList = [];
+  List<Product> _productItemList = [];
 
-  addProductItem(String title,int id) {
+  addProductItem(String title, int id) {
     Product productItem = Product(
-        id: id,
-        title:title,
-       );
+      id: id,
+      title: title,
+    );
 
-    productItemList.add(productItem);
+    _productItemList.add(productItem);
     notifyListeners();
-    print(productItemList);
+    print(_productItemList);
+  }
+
+  List<Product> get productItemList {
+    return _productItemList;
   }
 }

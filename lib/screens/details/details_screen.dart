@@ -18,11 +18,8 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: kPrimaryColor,
         appBar: buildAppBar(context),
-        body: ChangeNotifierProvider(
-          create: (BuildContext context) => CartModel(),
-          child: DetailsBody(
-            product: product,
-          ),
+        body: DetailsBody(
+          product: product,
         ));
   }
 
