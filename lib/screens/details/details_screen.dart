@@ -11,8 +11,8 @@ import 'components/body.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
-
-  const DetailsScreen({Key key, this.product}) : super(key: key);
+  final int quantity;
+  DetailsScreen({Key key, this.product, this.quantity}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +20,7 @@ class DetailsScreen extends StatelessWidget {
         appBar: buildAppBar(context),
         body: DetailsBody(
           product: product,
+          quantity: quantity,
         ));
   }
 
@@ -43,7 +44,11 @@ class DetailsScreen extends StatelessWidget {
         IconButton(
           icon: SvgPicture.asset('assets/icons/cart_with_item.svg'),
           onPressed: () {
-            Navigation.pushNavigation(context, CartScreen());
+            Navigation.pushNavigation(
+                context,
+                CartScreen(
+                  quantity: quantity,
+                ));
           },
         ),
       ],

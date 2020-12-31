@@ -5,16 +5,22 @@ import 'package:furniture_app/provider_class/provider_class.dart';
 import 'package:provider/provider.dart';
 
 import 'chat_and_add_to_cart.dart';
-import 'list_of_colors.dart';
 import 'product_image.dart';
 
-class DetailsBody extends StatelessWidget {
+class DetailsBody extends StatefulWidget {
   final Product product;
+  final int quantity;
+  DetailsBody({Key key, this.product, this.quantity}) : super(key: key);
 
-  const DetailsBody({Key key, this.product}) : super(key: key);
+  @override
+  _DetailsBodyState createState() => _DetailsBodyState();
+}
+
+class _DetailsBodyState extends State<DetailsBody> {
+  
   @override
   Widget build(BuildContext context) {
-    var ccart = Provider.of<CartModel>(context, listen: true);
+    var ccart = Provider.of<Cart>(context, listen: true);
     // it provide us total height and width
     Size size = MediaQuery.of(context).size;
     // it enable scrolling on small devices
@@ -39,24 +45,23 @@ class DetailsBody extends StatelessWidget {
                 children: <Widget>[
                   Center(
                     child: Hero(
-                      tag: '${product.id}',
+                      tag: '${widget.product.id}',
                       child: ProductPoster(
                         size: size,
-                        image: product.image,
+                        image: widget.product.image,
                       ),
                     ),
                   ),
-                  ListOfColors(),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: kDefaultPadding / 2),
                     child: Text(
-                      product.title,
+                      widget.product.title,
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                   Text(
-                    '\$${product.price}',
+                    '\$${widget.product.price}',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -67,7 +72,7 @@ class DetailsBody extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
                     child: Text(
-                      product.description,
+                      widget.product.description,
                       style: TextStyle(color: kTextLightColor),
                     ),
                   ),
@@ -78,7 +83,7 @@ class DetailsBody extends StatelessWidget {
             ChatAndAddToCart(
               context: context,
               onPressed: () {
-                ccart.addProductItem(product.title, product.id);
+                ccart.addProductItem(widget.product);
               },
             ),
           ],
