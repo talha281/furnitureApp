@@ -12,15 +12,12 @@ const kBlueColor = Color(0xFF40BAD5);
 
 const kDefaultPadding = 20.0;
 const availableColors = [
-  Colors.red,
-  Colors.blue,
+  Colors.brown,
   Colors.amber,
-  Colors.teal,
   Colors.orange,
-  Colors.purple,
-  Colors.pink
+  Colors.yellow,
 ];
-MaterialColor _bgColors = availableColors[Random().nextInt(6)];
+Color _bgColors = availableColors[Random().nextInt(3)];
 
 // our default Shadow
 const kDefaultShadow = BoxShadow(
