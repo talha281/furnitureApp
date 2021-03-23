@@ -22,7 +22,7 @@ Future<void> depInject() async {
 void _injectRepository() {
   sl.registerLazySingleton<IHome>(() => HomeRepository());
   sl.registerLazySingleton<ICartRepository>(() => CartRepository());
-  sl.registerLazySingleton<IUserRepository>(() => UserRepository(sl()));
+  sl.registerLazySingleton<IUserRepository>(() => UserRepository(sl(),sl()));
 }
 
 void _injectBloc() {
