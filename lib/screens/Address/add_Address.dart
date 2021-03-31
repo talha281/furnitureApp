@@ -4,7 +4,7 @@ import 'package:furniture_app/Utils/navigator_class.dart';
 import 'package:furniture_app/Utils/text_field.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/data/models/address_model.dart';
-import 'package:furniture_app/provider_class/address_provider.dart';
+import 'package:furniture_app/login/address_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'choose_address.dart';

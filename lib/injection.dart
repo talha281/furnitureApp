@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:furniture_app/data/repository/home.dart';
-import 'package:furniture_app/data/repository/interfaces/I_home.dart';
-import 'package:furniture_app/data/repository/interfaces/i_cart_repository.dart';
-import 'package:furniture_app/data/repository/interfaces/i_user_repository.dart';
+import 'package:furniture_app/data/repository/home/home.dart';
+import 'package:furniture_app/data/repository/cart/i_cart_repository.dart';
+import 'package:furniture_app/data/repository/user/i_user_repository.dart';
 import 'package:furniture_app/global/user/bloc/user_bloc.dart';
-import 'package:furniture_app/screens/cart/bloc/cart_bloc.dart';
-import 'package:furniture_app/screens/dashboard/bloc/dashboard_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:furniture_app/global/auth/bloc/authentication_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'data/repository/cart_repository.dart';
-import 'data/repository/user_repository.dart';
+import 'blocs/cart/bloc/cart_bloc.dart';
+import 'blocs/dashboard/bloc/dashboard_bloc.dart';
+import 'data/repository/cart/cart_repository.dart';
+import 'data/repository/home/I_home.dart';
+import 'data/repository/user/user_repository.dart';
 import 'login/bloc/login_bloc.dart';
 
 final GetIt sl = GetIt.instance;

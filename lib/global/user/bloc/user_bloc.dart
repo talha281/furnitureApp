@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:furniture_app/data/models/user_model.dart';
-import 'package:furniture_app/data/repository/interfaces/i_user_repository.dart';
+import 'package:furniture_app/data/repository/user/i_user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'user_event.dart';

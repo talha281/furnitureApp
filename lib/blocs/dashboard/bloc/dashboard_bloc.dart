@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:furniture_app/data/models/category.dart';
 import 'package:furniture_app/data/models/product.dart';
-import 'package:furniture_app/data/repository/interfaces/I_home.dart';
+import 'package:furniture_app/data/repository/home/I_home.dart';
 import 'package:meta/meta.dart';
 
 part 'dashboard_event.dart';

@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_app/data/models/cart_model.dart';
 import 'package:furniture_app/data/models/product.dart';
-import 'package:furniture_app/data/repository/interfaces/i_cart_repository.dart';
+import 'package:furniture_app/data/repository/cart/i_cart_repository.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';

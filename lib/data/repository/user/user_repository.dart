@@ -3,7 +3,7 @@ import "package:firebase_auth/firebase_auth.dart";
 import 'package:furniture_app/data/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'interfaces/i_user_repository.dart';
+import 'i_user_repository.dart';
 
 const USER = 'user';
 

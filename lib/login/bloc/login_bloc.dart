@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furniture_app/data/repository/interfaces/i_user_repository.dart';
+import 'package:furniture_app/data/repository/user/i_user_repository.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 

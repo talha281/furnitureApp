@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:furniture_app/blocs/cart/bloc/cart_bloc.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/data/models/product.dart';
-import 'package:furniture_app/screens/cart/bloc/cart_bloc.dart';
 import 'package:furniture_app/utils/navigator_class.dart';
 import '../cart/cart.dart';
 import 'components/body.dart';

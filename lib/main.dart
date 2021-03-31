@@ -6,11 +6,11 @@ import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/global/auth/bloc/authentication_bloc.dart';
 import 'package:furniture_app/home_page.dart';
 import 'package:furniture_app/routers.dart';
-import 'package:furniture_app/screens/cart/bloc/cart_bloc.dart';
 import 'package:provider/provider.dart';
+import 'blocs/cart/bloc/cart_bloc.dart';
+import 'blocs/dashboard/bloc/dashboard_bloc.dart';
 import 'global/user/bloc/user_bloc.dart';
 import 'injection.dart' as di;
-import 'screens/dashboard/bloc/dashboard_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

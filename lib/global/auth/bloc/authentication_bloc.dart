@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:furniture_app/data/models/user_model.dart';
-import 'package:furniture_app/data/repository/interfaces/i_user_repository.dart';
+import 'package:furniture_app/data/repository/user/i_user_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

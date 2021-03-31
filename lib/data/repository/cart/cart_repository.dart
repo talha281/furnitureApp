@@ -2,7 +2,7 @@
 import 'package:furniture_app/data/models/cart_model.dart';
 import 'package:furniture_app/data/models/product.dart';
 
-import 'interfaces/i_cart_repository.dart';
+import 'i_cart_repository.dart';
 
 class CartRepository extends ICartRepository {
   List<CartModel?> _productItemList = [];

@@ -3,7 +3,7 @@ import 'package:furniture_app/data/mock/mock_products.dart';
 import 'package:furniture_app/data/models/category.dart';
 import 'package:furniture_app/data/models/product.dart';
 
-import 'interfaces/I_home.dart';
+import 'I_home.dart';
 
 class HomeRepository implements IHome{
   Future<List<Product>> func(String? catId) async {
