@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
   Widget buildMaterialApp() {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Furniture app',
+      title: 'Furniture',
       navigatorKey: RouteNavigation.routeKey,
       theme: ThemeData(
         // We set Poppins as our default font

@@ -26,7 +26,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         add(event);
       });
     } else if (event is OtpSendEvent) {
-      yield OtpSentState();
+      yield LoadingState();
+      yield OtpSentState();      
     } else if (event is LoginCompleteEvent) {
       //sendToNext function will be called.
       yield LoginCompleteState(event.firebaseUser);
@@ -72,7 +73,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     StreamController<LoginEvent> eventStream = StreamController();
     final phoneVerificationCompleted = (AuthCredential authCredential) async {
       await userRepository.signInFirebase(authCredential);
-      User? user = userRepository.getUser();
+      User? user = userRepository.getFirebaseUser();
       eventStream.add(LoginCompleteEvent(user));
       // eventStream.close();
     };
@@ -90,7 +91,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       this.verID = verid;
       eventStream.close();
     };
-
+    print('hey above the sendotp');
     await userRepository.sendOtp(
         phoNo,
         Duration(seconds: 60),

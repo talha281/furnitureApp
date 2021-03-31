@@ -8,6 +8,7 @@ import 'package:furniture_app/screens/cart/bloc/cart_bloc.dart';
 import 'package:furniture_app/screens/dashboard/bloc/dashboard_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:furniture_app/global/auth/bloc/authentication_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'data/repository/cart_repository.dart';
 import 'data/repository/user_repository.dart';
 import 'login/bloc/login_bloc.dart';
@@ -35,5 +36,7 @@ void _injectBloc() {
 Future<void> _injectExternal() async {
   FirebaseApp app = await Firebase.initializeApp();
   sl.registerFactory<FirebaseApp>(() => app);
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  sl.registerFactory<SharedPreferences>(() => pref);
   sl.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
 }

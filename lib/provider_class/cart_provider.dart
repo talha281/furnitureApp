@@ -32,7 +32,7 @@ class Cart extends ChangeNotifier {
 
   void _totalPricing(CartModel cartItem) {
     int _index = _productItemList!.indexOf(cartItem);
-    int _quantity = _productItemList![_index]!.quantity!;
+    int _quantity = _productItemList![_index]!.quantity;
     double _price = _productItemList![_index]!.product!.price!;
     double _totalPrice = _price * _quantity;
     _productItemList![_index]!.totalPrice = _totalPrice;
@@ -52,7 +52,7 @@ class Cart extends ChangeNotifier {
     double _totalPrice = _productItemList![_index]!.totalPrice!;
     double _totalcost = _totalPrice - _price;
     _productItemList![_index]!.totalPrice = _totalcost;
-    if (_productItemList![_index]!.quantity! <= 1) {
+    if (_productItemList![_index]!.quantity <= 1) {
       removeProductItem(_productItemList![_index]!.product);
     } else {
       _productItemList![_index]??quantity--;

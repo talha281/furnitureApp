@@ -19,11 +19,14 @@ class AuthenticationBloc
     AuthenticationEvent event,
   ) async* {
     if (event is AppStarted) {
-      final bool hasToken = userRepository!.getUser() != null;
-
+      print('this is App Started ');
+      UserModel? storedUser = await userRepository!.getUser();
+      final bool hasToken = storedUser!.username != null;
+      print('this is token $hasToken');
       if (hasToken) {
-        User? firebaseUser = userRepository!.getUser();
-        yield AuthenticatedState(firebaseUser);
+        UserModel? user = await userRepository!.getUser();
+        print(user);
+        yield AuthenticatedState(user: user);
       } else {
         yield Unauthenticated();
       }
@@ -33,7 +36,7 @@ class AuthenticationBloc
       yield Loading();
 
       // String uid = await userRepository.getUser().then((value) => value?.uid ?? 'UID NULL');
-      yield AuthenticatedState(event.firebaseUser);
+      yield AuthenticatedState(firebaseUser: event.firebaseUser);
     } else if (event is LoggedOutEvent) {
       await userRepository!.signOut();
       yield Loading();

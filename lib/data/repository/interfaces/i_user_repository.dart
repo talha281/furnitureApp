@@ -1,9 +1,9 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:furniture_app/data/models/user_model.dart';
 
 abstract class IUserRepository {
-  User? getUser();
+  Future<UserModel>? getUser();
+  User? getFirebaseUser();
   Future<UserModel> checkUserOnServer(String firebaseId);
   Future<String> get userId;
   Future<void> signOut();
