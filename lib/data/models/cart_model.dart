@@ -3,12 +3,12 @@ import 'package:furniture_app/data/models/product.dart';
 
 class CartModel {
   final Product? product;
-  int? quantity;
+  int quantity;
   double? totalPrice;
 
   CartModel({
     this.product,
-    this.quantity,
+    required this.quantity,
     this.totalPrice
   });
 

@@ -38,6 +38,8 @@ void _injectBloc() {
 Future<void> _injectExternal() async {
   FirebaseApp app = await Firebase.initializeApp();
   sl.registerFactory<FirebaseApp>(() => app);
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  sl.registerFactory<SharedPreferences>(() => pref);
   sl.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
   SharedPreferences preferences = await SharedPreferences.getInstance();
   sl.registerFactory<SharedPreferences>(() => preferences);

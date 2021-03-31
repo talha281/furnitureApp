@@ -201,7 +201,7 @@ class CartScreen extends StatelessWidget {
                                                               child:
                                                                   QuantityManager(
                                                                 padding: (productz[index]!
-                                                                            .quantity! >=
+                                                                            .quantity >=
                                                                         10)
                                                                     ? EdgeInsets
                                                                         .only(
@@ -217,7 +217,7 @@ class CartScreen extends StatelessWidget {
                                                                       ),
                                                                 quantity: productz[
                                                                         index]!
-                                                                    .quantity!,
+                                                                    .quantity,
                                                                 minusCallback:
                                                                     () {
                                                                   BlocProvider.of<

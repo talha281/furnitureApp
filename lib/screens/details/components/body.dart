@@ -111,12 +111,12 @@ class DetailsBody extends StatelessWidget {
                       (show)
                           ? QuantityManager(
                               padding: (state is CartWithItem)
-                                  ? (state.cartItem!.quantity! >= 10)
+                                  ? (state.cartItem!.quantity >= 10)
                                       ? EdgeInsets.only(left: 6.5, top: 5)
                                       : EdgeInsets.only(left: 9.5, top: 5)
                                   : EdgeInsets.only(left: 9.5, top: 5),
                               quantity: (state is CartWithItem)
-                                  ? state.cartItem!.quantity!
+                                  ? state.cartItem!.quantity
                                   : 0,
                               minusCallback: () {
                                 BlocProvider.of<CartBloc>(context)

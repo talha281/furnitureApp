@@ -15,12 +15,14 @@ class UserRepository implements IUserRepository {
     this._firebaseAuth,
     this.sharedPreferences,
   );
+
   Future<UserModel> get user async {
     String? user = sharedPreferences.getString(USER);
     if (user != null) {
       return UserModel.fromJson(user);
     } else {
-      throw Exception('User was called without being stored');
+      return UserModel();
+      // throw Exception('User was called without being stored');
     }
   }
 
@@ -31,6 +33,7 @@ class UserRepository implements IUserRepository {
       PhoneVerificationCompleted phoneVerificationCompleted,
       PhoneCodeSent phoneCodeSent,
       PhoneCodeAutoRetrievalTimeout autoRetrievalTimeout) async {
+        print('hey inside the sendotp');
     _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumber!,
         timeout: timeOut,
@@ -52,9 +55,16 @@ class UserRepository implements IUserRepository {
     return await _firebaseAuth.signInWithCredential(authCredential);
   }
 
-  User? getUser() {
-    User? user = _firebaseAuth.currentUser;
-    return user;
+  Future<UserModel>? getUser() {
+    Future<UserModel> getUser = user;
+    print(user);
+    return getUser;
+  }
+
+  User? getFirebaseUser() {
+    User? getFirebaseUser = _firebaseAuth.currentUser;
+    print(user);
+    return getFirebaseUser;
   }
 
   Future<void> signOut() async {
@@ -72,7 +82,7 @@ class UserRepository implements IUserRepository {
   }
 
   Future<String> get userId async {
-    User _currentUser = getUser()!;
+    User _currentUser = getFirebaseUser()!;
     String _id = _currentUser.uid;
     return _id;
   }

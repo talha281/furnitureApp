@@ -15,10 +15,10 @@ class AuthenticatedState extends AuthenticationState {
   final User? firebaseUser;
   final UserModel? user;
 
-  AuthenticatedState(this.firebaseUser, {this.user});
+  AuthenticatedState({this.firebaseUser,this.user});
 
   @override
-  List<Object?> get props => [firebaseUser];
+  List<Object?> get props => [firebaseUser,user];
 }
 
 class Unauthenticated extends AuthenticationState {
