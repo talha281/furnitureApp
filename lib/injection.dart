@@ -4,6 +4,7 @@ import 'package:furniture_app/data/repository/home.dart';
 import 'package:furniture_app/data/repository/interfaces/I_home.dart';
 import 'package:furniture_app/data/repository/interfaces/i_cart_repository.dart';
 import 'package:furniture_app/data/repository/interfaces/i_user_repository.dart';
+import 'package:furniture_app/global/user/bloc/user_bloc.dart';
 import 'package:furniture_app/screens/cart/bloc/cart_bloc.dart';
 import 'package:furniture_app/screens/dashboard/bloc/dashboard_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -23,7 +24,7 @@ Future<void> depInject() async {
 void _injectRepository() {
   sl.registerLazySingleton<IHome>(() => HomeRepository());
   sl.registerLazySingleton<ICartRepository>(() => CartRepository());
-  sl.registerLazySingleton<IUserRepository>(() => UserRepository(sl(),sl()));
+  sl.registerLazySingleton<IUserRepository>(() => UserRepository(sl(), sl()));
 }
 
 void _injectBloc() {
@@ -31,6 +32,7 @@ void _injectBloc() {
   sl.registerFactory(() => CartBloc(sl()));
   sl.registerFactory(() => LoginBloc(userRepository: sl()));
   sl.registerFactory(() => AuthenticationBloc(sl()));
+  sl.registerFactory(() => UserBloc(sl(), sl()));
 }
 
 Future<void> _injectExternal() async {
@@ -39,4 +41,6 @@ Future<void> _injectExternal() async {
   SharedPreferences pref = await SharedPreferences.getInstance();
   sl.registerFactory<SharedPreferences>(() => pref);
   sl.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  sl.registerFactory<SharedPreferences>(() => preferences);
 }
