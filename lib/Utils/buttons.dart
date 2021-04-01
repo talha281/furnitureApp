@@ -21,10 +21,13 @@ Widget submitButton(
                 Theme.of(context).primaryColor,
                 Theme.of(context).primaryColor.withAlpha(190)
               ])),
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+      child: FittedBox(
+        fit: BoxFit.none,
+        child: Text(
+          text,
+          style: TextStyle(
+              fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
     ),
   );

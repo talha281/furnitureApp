@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:furniture_app/global/auth/bloc/authentication_bloc.dart';
 import 'package:furniture_app/injection.dart';
 import 'package:furniture_app/own_packages/pin_entry_fields.dart';
@@ -36,8 +37,8 @@ class LoginForm extends StatelessWidget {
           } else if (loginState is OtpExceptionState) {
             message = loginState.message;
           }
-          scaffoldKey.currentState!.showSnackBar(
-            buildSnackBar(width, message!),
+          ScaffoldMessenger.of(context).showSnackBar(
+            buildSnackBar(width, message!, context),
           );
         }
       },
@@ -53,7 +54,36 @@ class LoginForm extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      // Logo(),
+                      Container(
+                        width: MediaQuery.of(context).size.width / 1.6,
+                        child: Stack(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Divider(
+                                  color: Theme.of(context).primaryColor,
+                                  thickness: 8.0,
+                                ),
+                                Divider(
+                                  color: Theme.of(context).primaryColor,
+                                  thickness: 6.0,
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 5),
+                                  borderRadius: BorderRadius.circular(200)),
+                              child: Icon(FontAwesomeIcons.chair, size: 150),
+                            ),
+                          ],
+                        ),
+                      ),
                       SizedBox(height: 50),
                       BlocBuilder<LoginBloc, LoginState>(
                           builder: (context, state) {
@@ -80,7 +110,7 @@ class LoginForm extends StatelessWidget {
     );
   }
 
-  SnackBar buildSnackBar(double width, String message) {
+  SnackBar buildSnackBar(double width, String message, BuildContext context) {
     return SnackBar(
       duration: Duration(seconds: 10),
       content: Row(
@@ -97,14 +127,16 @@ class LoginForm extends StatelessWidget {
       action: SnackBarAction(
         label: 'CLOSE',
         textColor: Colors.white,
-        onPressed: close,
+        onPressed: () {
+          close(context);
+        },
       ),
       backgroundColor: Colors.black,
     );
   }
 
-  void close() {
-    scaffoldKey.currentState!.hideCurrentSnackBar();
+  void close(BuildContext context) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
   }
 
   getViewAsPerState(LoginState state, BuildContext context) {
@@ -165,13 +197,16 @@ class NumberInput extends StatelessWidget {
         SizedBox(
           height: 12,
         ),
-        submitButton(() {
-          if (_formKey.currentState!.validate()) {
-            BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
-                phoNo: "+91" + _phoneTextController.value.text,
-                context: context));
-          }
-        }, context, 'Login')
+        FittedBox(
+          fit: BoxFit.contain,
+          child: submitButton(() {
+            if (_formKey.currentState!.validate()) {
+              BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
+                  phoNo: "+91" + _phoneTextController.value.text,
+                  context: context));
+            }
+          }, context, 'Login'),
+        )
       ],
     );
   }

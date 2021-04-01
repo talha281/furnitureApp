@@ -31,9 +31,9 @@ class RouteNavigation {
       case (RouteStrings.Categories):
         return pageTransition(
             child: CategoriesScreen(), type: PageTransitionType.leftToRight);
-      case (RouteStrings.ChooseAddressScreen):
-        return pageTransition(
-            child: ChooseAddress(), type: PageTransitionType.bottomToTop);
+      // case (RouteStrings.ChooseAddressScreen):
+      //   return pageTransition(
+      //       child: ChooseAddress(), type: PageTransitionType.bottomToTop);
       case (RouteStrings.ProductPage):
         return pageTransition(
             child: DetailsScreen(product: routeSettings.arguments as Product?),

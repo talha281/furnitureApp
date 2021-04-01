@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:furniture_app/data/repository/address/address_repository.dart';
+import 'package:furniture_app/data/repository/address/i_address_repository.dart';
 import 'package:furniture_app/data/repository/home/home.dart';
 import 'package:furniture_app/data/repository/cart/i_cart_repository.dart';
 import 'package:furniture_app/data/repository/user/i_user_repository.dart';
@@ -25,6 +27,7 @@ void _injectRepository() {
   sl.registerLazySingleton<IHome>(() => HomeRepository());
   sl.registerLazySingleton<ICartRepository>(() => CartRepository());
   sl.registerLazySingleton<IUserRepository>(() => UserRepository(sl(), sl()));
+  sl.registerLazySingleton<IAddressRepository>(() => AddressRepository());
 }
 
 void _injectBloc() {
@@ -41,6 +44,4 @@ Future<void> _injectExternal() async {
   SharedPreferences pref = await SharedPreferences.getInstance();
   sl.registerFactory<SharedPreferences>(() => pref);
   sl.registerFactory<FirebaseAuth>(() => FirebaseAuth.instance);
-  SharedPreferences preferences = await SharedPreferences.getInstance();
-  sl.registerFactory<SharedPreferences>(() => preferences);
 }

@@ -174,10 +174,10 @@ class _AppDrawerState extends State<AppDrawer> {
                         labelText: 'Address',
                         fontSize: 16.0,
                         onPressed: () {
-                          Navigation.pushNavigation(
-                            context,
-                            ChooseAddress(),
-                          );
+                          // Navigation.pushNavigation(
+                          //   context,
+                          //  // ChooseAddress(),
+                          // );
                         },
                       ),
                       DrawerList(

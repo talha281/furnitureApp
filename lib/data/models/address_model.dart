@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-class AddressModel {
+import 'package:equatable/equatable.dart';
+
+class AddressModel extends Equatable {
   final int? id;
   final String? userName;
   final String? mobileNumber;
@@ -9,7 +11,6 @@ class AddressModel {
   final String? deliveryArea;
   final String? landMark;
   final String? city;
-
   AddressModel({
     this.id,
     this.userName,
@@ -56,11 +57,9 @@ class AddressModel {
     };
   }
 
-  factory AddressModel.fromMap(Map<String, dynamic>? map) {
-   
-
+  factory AddressModel.fromMap(Map<String, dynamic> map) {
     return AddressModel(
-      id: map!['id'],
+      id: map['id'],
       userName: map['userName'],
       mobileNumber: map['mobileNumber'],
       pinCode: map['pinCode'],
@@ -77,34 +76,19 @@ class AddressModel {
       AddressModel.fromMap(json.decode(source));
 
   @override
-  String toString() {
-    return 'AddressModel(id: $id, userName: $userName, mobileNumber: $mobileNumber, pinCode: $pinCode, deliveryAddress: $deliveryAddress, deliveryArea: $deliveryArea, landMark: $landMark, city: $city)';
-  }
+  bool get stringify => true;
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is AddressModel &&
-        o.id == id &&
-        o.userName == userName &&
-        o.mobileNumber == mobileNumber &&
-        o.pinCode == pinCode &&
-        o.deliveryAddress == deliveryAddress &&
-        o.deliveryArea == deliveryArea &&
-        o.landMark == landMark &&
-        o.city == city;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        userName.hashCode ^
-        mobileNumber.hashCode ^
-        pinCode.hashCode ^
-        deliveryAddress.hashCode ^
-        deliveryArea.hashCode ^
-        landMark.hashCode ^
-        city.hashCode;
+  List<Object?> get props {
+    return [
+      id,
+      userName,
+      mobileNumber,
+      pinCode,
+      deliveryAddress,
+      deliveryArea,
+      landMark,
+      city,
+    ];
   }
 }
