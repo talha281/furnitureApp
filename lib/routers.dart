@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/data/models/product.dart';
-import 'package:furniture_app/screens/Address/choose_address.dart';
-import 'package:furniture_app/screens/category_product.dart/productgrid.dart';
-import 'package:furniture_app/screens/dashboard/dashboard.dart';
-import 'package:furniture_app/screens/dashboard/widgets/search_field.dart';
+import 'package:furniture_app/ui/category_product.dart/productgrid.dart';
+import 'package:furniture_app/ui/dashboard/dashboard.dart';
+import 'package:furniture_app/ui/dashboard/widgets/search_field.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'screens/details/details_screen.dart';
+import 'ui/details/details_screen.dart';
 
 class RouteNavigation {
   static GlobalKey<NavigatorState> routeKey = GlobalKey<NavigatorState>();

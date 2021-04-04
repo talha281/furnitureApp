@@ -4,6 +4,7 @@ import 'package:furniture_app/data/models/product.dart';
 abstract class ICartRepository {
   List<CartModel?>? get productItemList;
   double grandTotalFunc();
+  removeAllItem();
   removeProductItem(Product? product);
   checkTheCartFunc(Product? product);
   removeItem(Product? product);

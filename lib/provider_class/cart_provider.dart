@@ -13,11 +13,9 @@ class Cart extends ChangeNotifier {
           (element) => element!.product!.id == product.id,
           orElse: () => _addNewProduct(product));
       int? index = _productItemList!.indexOf(cartItem!);
-      if (cartItem != null) {
         _incrementQuantity(cartItem);
         _totalPricing(cartItem);
         print(_productItemList![index]!.totalPrice);
-      }
     } else {
       _addNewProduct(product);
     }

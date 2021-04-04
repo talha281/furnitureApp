@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_app/constants.dart';
-import 'package:furniture_app/global/auth/bloc/authentication_bloc.dart';
-import 'package:furniture_app/home_page.dart';
 import 'package:furniture_app/routers.dart';
 import 'package:provider/provider.dart';
 import 'blocs/cart/bloc/cart_bloc.dart';
 import 'blocs/dashboard/bloc/dashboard_bloc.dart';
-import 'global/user/bloc/user_bloc.dart';
+import 'home_page.dart';
 import 'injection.dart' as di;
 
 Future<void> main() async {
@@ -59,14 +57,9 @@ class MyApp extends StatelessWidget {
 
   List<BlocProvider> providers() {
     return [
-      BlocProvider<AuthenticationBloc>(
-        create: (context) => di.sl<AuthenticationBloc>()..add(AppStarted()),
-      ),
       BlocProvider<DashboardBloc>(
           create: (context) => di.sl<DashboardBloc>()..add(LoadDashboard())),
       BlocProvider<CartBloc>(create: (context) => di.sl<CartBloc>()),
-      BlocProvider<UserBloc>(
-          create: (context) => di.sl<UserBloc>()..add(CheckUserEvent())),
     ];
   }
 }

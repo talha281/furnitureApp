@@ -8,7 +8,7 @@ class TextInputField extends StatelessWidget {
       required this.hintText,
       this.icon,
       this.keyboard = TextInputType.text,
-      this.contentPadding = padding});
+      this.contentPadding = padding, bool? readOnly});
 
   final String hintText;
   final IconData? icon;

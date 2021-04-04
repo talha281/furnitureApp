@@ -29,7 +29,7 @@ class QuantityManager extends StatelessWidget {
         ),
       ),
       height: 35,
-      // width: 105,
+      width: MediaQuery.of(context).size.width / 2.9,
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -43,7 +43,7 @@ class QuantityManager extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 4),
                 child: (SvgPicture.asset("assets/icons/shopping-bag.svg",
-                    height: 25,color: kPrimaryColor)),
+                    height: 25, color: kPrimaryColor)),
               ),
               Container(
                   padding: padding,

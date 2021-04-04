@@ -30,6 +30,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       cartRepository.removeProductItem(event.product!);
       yield Loading();
       yield theState(product: event.product);
+    } else if (event is RemoveAllItem) {
+      cartRepository.removeAllItem();
+      yield Loading();
+      yield theState();
     } else if (event is RemoveItemEvent) {
       cartRepository.removeItem(event.product!);
       yield Loading();
@@ -48,4 +52,3 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     return CartEmpty();
   }
 }
-

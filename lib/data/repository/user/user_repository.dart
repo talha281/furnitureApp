@@ -33,7 +33,7 @@ class UserRepository implements IUserRepository {
       PhoneVerificationCompleted phoneVerificationCompleted,
       PhoneCodeSent phoneCodeSent,
       PhoneCodeAutoRetrievalTimeout autoRetrievalTimeout) async {
-        print('hey inside the sendotp');
+    print('hey inside the sendotp');
     _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumber!,
         timeout: timeOut,
@@ -77,7 +77,7 @@ class UserRepository implements IUserRepository {
     if (_user != null) {
       return Future.value(UserModel.fromJson(_user));
     } else {
-      return Future.value(UserModel(birthdate: DateTime.now()));
+      return Future.value(UserModel());
     }
   }
 
@@ -92,6 +92,7 @@ class UserRepository implements IUserRepository {
   }
 
   Future<void> storeUser(UserModel user) async {
+    print('inside the store user');
     await sharedPreferences.setString(USER, user.toJson());
   }
 

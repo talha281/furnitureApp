@@ -9,13 +9,13 @@ class CartRepository extends ICartRepository {
   // on every time when we will call the functions of this repository then we will call one function with that function
   //In that function the code will be of converting that prefs list into model list.
   // And after working with models list we will make a function in which we will store list in preferences
- 
+
   List<CartModel?> _productItemList = [];
   int quantity = 1;
   CartModel? cartProduct = CartModel(quantity: 0);
 
   addProductItem(Product? product) {
-// we will get from prefs & add to list 
+// we will get from prefs & add to list
     if (_productItemList.isNotEmpty) {
       CartModel? cartItem = _productItemList.firstWhere(
           (element) => element!.product!.id == product!.id,
@@ -24,7 +24,7 @@ class CartRepository extends ICartRepository {
       if (cartItem != null) {
         _incrementQuantity(cartItem);
         _totalPricing(cartItem);
-// we will store to prefs again 
+// we will store to prefs again
         print(_productItemList[index]?.totalPrice);
       }
     } else {
@@ -82,6 +82,11 @@ class CartRepository extends ICartRepository {
     CartModel? cartItem =
         _productItemList.firstWhere((element) => element!.product == product);
     _productItemList.removeAt(_productItemList.indexOf(cartItem));
+    print(_productItemList);
+  }
+
+  removeAllItem() {
+    _productItemList.clear();
     print(_productItemList);
   }
 
