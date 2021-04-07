@@ -122,8 +122,7 @@ class CartScreen extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Container(
-                                  height:
-                                      MediaQuery.of(context).size.height / 3.3,
+                                  height: 158,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),

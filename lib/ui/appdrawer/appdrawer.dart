@@ -162,7 +162,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         labelText: 'Category',
                         fontSize: 16.0,
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                               context,
                               PageTransition(
                                   child: CategoriesScreen(),

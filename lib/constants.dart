@@ -12,10 +12,10 @@ const kBlueColor = Color(0xFF40BAD5);
 
 const kDefaultPadding = 20.0;
 const availableColors = [
-  Color(0xff630819),
-  Colors.amber,
-  Color(0xff630850),
-  Colors.yellow,
+  Color(0xFFFCEF2F),
+  Color(0xFF40BAD5),
+  Color(0xFFFCBF1E),
+  Color(0xFF301b1b),
 ];
 Color _bgColors = availableColors[Random().nextInt(3)];
 

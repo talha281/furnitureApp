@@ -35,62 +35,53 @@ class ContactScrContainer extends StatelessWidget {
       width: width,
       padding: EdgeInsets.only(left: 6, top: 4, bottom: 2, right: 1),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.topRight,
-            colors: [Colors.amber.shade700, kPrimaryColor],
-          ),
+          border: Border.all(color: Color(0xFFFCBF1E)),
           borderRadius: BorderRadius.circular(7)),
       child: Container(
-        child: Material(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-            elevation: 1,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: Container(
-                margin: margin,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 13),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomRight,
-                            colors: [Colors.amber.shade700, kPrimaryColor],
-                          ),
-                          shape: BoxShape.circle,
-                        ),
-                        child: CircleAvatar(
-                          radius: 28,
-                          backgroundColor: Colors.transparent,
-                          child: CircleAvatar(
-                            radius: 26.2,
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              icon,
-                              size: 28.0,
-                              color: kPrimaryColor,
-                            ),
-                          ),
+        child: Container(
+            margin: margin,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 13),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomRight,
+                        colors: [Colors.amber.shade700, kPrimaryColor],
+                      ),
+                      shape: BoxShape.circle,
+                    ),
+                    child: CircleAvatar(
+                      radius: 28,
+                      backgroundColor: Colors.transparent,
+                      child: CircleAvatar(
+                        radius: 26.2,
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          icon,
+                          size: 28.0,
+                          color: kPrimaryColor,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: icontext,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: messageText,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: InkWell(onTap: callback, child: contactThrough),
-                    ),
-                  ],
-                ))),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: icontext,
+                ),
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: messageText,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: InkWell(onTap: callback, child: contactThrough),
+                ),
+              ],
+            )),
       ),
     );
   }

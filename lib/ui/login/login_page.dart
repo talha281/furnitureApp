@@ -22,34 +22,10 @@ class LoginPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      width: MediaQuery.of(context).size.width / 1.6,
-                      child: Stack(
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Divider(
-                                color: Theme.of(context).primaryColor,
-                                thickness: 8.0,
-                              ),
-                              Divider(
-                                color: Theme.of(context).primaryColor,
-                                thickness: 6.0,
-                              ),
-                            ],
-                          ),
-                          Container(
-                            height: 200,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 5),
-                                borderRadius: BorderRadius.circular(200)),
-                            child: Icon(FontAwesomeIcons.chair, size: 150),
-                          ),
-                        ],
+                    Center(
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        // fit: BoxFit.cover,
                       ),
                     ),
                     SizedBox(height: 50),

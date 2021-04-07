@@ -136,30 +136,54 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 15,
               ),
-              submitButton(() async {
-                showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return Container(
-                        color: Colors.white10,
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: Circular(
-                            color: Color(0xFFFCBF1E),
-                          ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    child: MaterialButton(
+                      disabledTextColor: Colors.grey,
+                      disabledColor:
+                          Theme.of(context).primaryColor.withOpacity(0.5),
+                      color: Theme.of(context).primaryColor,
+                      elevation: 4,
+                      hoverElevation: 20,
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(25.0)),
+                      onPressed: (canPress)
+                          ? () async {
+                              showDialog(
+                                  context: context,
+                                  barrierDismissible: false,
+                                  builder: (BuildContext context) {
+                                    return Container(
+                                      color: Colors.white10,
+                                      height: 100,
+                                      width: 100,
+                                      child: Center(
+                                        child: Circular(
+                                          color: Color(0xFFFCBF1E),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                              UserModel user = UserModel(
+                                email: _emailController.text,
+                                mobileNumber: _phoneController.text,
+                                username: _nameTextController.text,
+                              );
+                              await storeUser(user);
+                            }
+                          : null,
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Text(
+                          'Save',
+                          style: TextStyle(color: Colors.white),
                         ),
-                      );
-                    });
-                UserModel user = UserModel(
-                  email: _emailController.text,
-                  mobileNumber: _phoneController.text,
-                  username: _nameTextController.text,
-                );
-                await storeUser(user);
-              }, context, 'save'),
-              SizedBox(height: 20)
+                      ),
+                    )),
+              ),
             ],
           ),
         ),

@@ -8,13 +8,14 @@ class TextInputField extends StatelessWidget {
       required this.hintText,
       this.icon,
       this.keyboard = TextInputType.text,
-      this.contentPadding = padding, bool? readOnly});
+      this.contentPadding = padding,
+      bool? readOnly});
 
   final String hintText;
   final IconData? icon;
   final TextInputType keyboard;
   final EdgeInsetsGeometry contentPadding;
-  TextEditingController controller =TextEditingController();
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class TextInputField extends StatelessWidget {
       ),
       child: Theme(
         data: Theme.of(context).copyWith(primaryColor: kPrimaryColor),
-        child: TextField(
+        child: TextFormField(
           style: TextStyle(),
           keyboardType: keyboard,
           controller: controller,
